@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <style>
+
+    body{
+      background-color:black;
+      color: white;
+      margin: 0px;
+      text-align: center;
+    }
+    .game{
+      background-color: green;
+      text-align: center;
+      /*float: center;*/
+      width: 900px;
+      display: inline-block;
+      height: 100vh;
+    }
+
+    .challenge{
+      text-align: center;
+      display:none;
+
+    }
+
+    .question{
+      background-color: black;
+      height: 40%;
+      text-align: left;
+      font-size: 20px;
+      font: "Monaco";
+      padding-top:20px;
+      width: 96%;
+    }
+
+    .answer{
+      background-color: black;
+      height: 50%;
+      width:100%;
+      overflow: scroll;;
+    }
+
+    .leftSide{
+      background-color:black;
+      text-align: center;
+      width:50%;
+      height: 100vh;
+      /*display: inline-block; */
+      float: left;
+    }
+
+    .rightSide{
+      background-color: black;
+      text-align: center;
+      width:50%;
+      height: 100vh;
+      display: inline-block;
+      float: right;
+    }
+
+    .input{
+      background-color: white;
+      color: grey;
+      display: inline-block;
+      width: 96%;
+      height: 96%;
+      /*margin: 10px;*/
+      font-size: 20px;
+      text-align: left;
+      margin: 0px;
+      overflow: scroll;
+      display: none;
+    }
+
+    .input:focus{
+      outline: none;
+    }
+
+    #answer{
+      background-color: white;
+
+    }
+
+    #submit{
+      /*float: right;*/
+      width: 80px;
+    }
+
+    #starwars{
+      height:100%;
+      width:100%;
+      background-color: black;
+    }
+
+    .choice{
+      text-align:left;
+      width:100%;
+      color:black;
+      white-space: pre;
+      padding:10px;
+    }
+
+    .choice:hover{
+      background-color: LightBlue;
+    }
+
+  </style>
+
+<!-- Main JS code for the game and interaction with layout window --> 
+  <script src="script.js"></script>
+
+</head>
+
+<body>
+
+<!-- where the game runs --> 
+<div class = "game" id = "game">
+
+  <!-- runs this game html file in the div --> 
+  <object id = "starwars" type="text/html" data="SpaceWars.html"></object>
+
+</div>
+
+<!-- Button for splitting the screen and showing question --> 
+<button id = "button1" type="button"
+onclick ="MoveOver()"> Show question </button>
+
+<!-- Everything that appears on the right when button is clicked --> 
+<div class = "challenge" id = "challenge">
+
+  <!-- Question appears on the top --> 
+  <div class = "question" id = "question"></div>
+
+  <!-- Field for user's answer appears on the bottom --> 
+  <div class = "answer" id = "answer">
+
+    <!-- Boxes for multiple choices --> 
+    <div id = "C1" class = "choice"></div>;
+    <div id = "C2" class = "choice"></div>;
+    <div id = "C3" class = "choice"></div>;
+    <div id = "C4" class = "choice"></div>;
+
+    <!-- Text box for free-response --> 
+    <div id = "input" class = "input" contenteditable = "true">
+
+      Type your solution here
+
+      <!-- In progress: better implementation of text input box --> 
+
+      <script>
+      /*var aceEditor = window.ace.edit(divElement);*/
+
+      document.getElementById("input").addEventListener("click", PromptHandler);
+
+      // attempts to make the tab key work on input, not moving to the next div 
+
+      function tab(){
+        /*var v=document.getElementById("input").value;
+        var s=document.getElementById("input").selectionStart;
+        var e=document.getElementById("input").selectionEnd;
+        document.getElementById("input").value=v.substring(0, s)+'\t'+v.substring(e);
+        document.getElementById("input").selectionStart=document.getElementById("input").selectionEnd=s+1;*/
+        return false;
+      }
+    </script></div>
+
+  </div>
+
+<!-- Button for answer submission --> 
+  <button id = "submit" type = "button"
+    onclick="Submit()">
+    SUBMIT </button>
+
+</div>
+</body>
+
+<!-- Pulling questions from here --> 
+<script src="q1.js"></script>
+
+</html>

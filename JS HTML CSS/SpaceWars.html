@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+Final Project: SpaceWars2050
+Mai Ngo, Asmita Gautam, Miriam Hodas, Stacy Falaleeva
+
+Note: Borrowed some code from the PaddleBall sprint (moving left and right)
+-->
+<html>
+<head>
+<title>SpaceWars2050</title>
+
+<link href="/css/style.css" rel="stylesheet">
+<img id="spaceship" width="0" height="0" src="spaceship.png" alt="SpaceShip">
+<link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+<img id="asteroid" width="0" height="0" src="asteroid.png" alt="Asteroid">
+<img id="alien" width="0" height="0" src="alien.png" alt="Alien">
+<img id="explosion" width="0" height="0" src="explosion.png" alt="Explosion">
+<img id="greenshield" width="0" height="0" src="GreenShield.png" alt="Green Shield">
+<img id="redshield" width="0" height="0" src="RedShield.png" alt="Red Shield">
+<img id="bullet" width="0" height="0" src="bullet.png" alt="bullet">
+
+<script src="script.js"> </script>
+
+</head>
+
+<!-- onload only works when applied to the body, cannot do with another div --> 
+
+<body onload="init()">
+
+  <div class="outer">
+
+    <!-- Scrolling stars background --> 
+    <div class="inner"></div>
+
+    <!-- All the animation elements --> 
+    <canvas id="theCanvas" width="600" height="1200"></canvas>
+
+  </div>
+</body>
+</html>
